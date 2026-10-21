@@ -1,0 +1,45 @@
+[project]
+name = "accident"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jupyter>=1.1.1",
+    "opencv-python>=5.0.0.93",
+    "pillow>=12.3.0",
+    "requests>=2.34.2",
+    "torch>=2.11.0",
+    "torchvision",
+    "torchcodec",
+    "transformers>=5.19.0",
+    "uuid>=1.30",
+    "pandas>=3.0.6",
+    "matplotlib>=3.11.2",
+    "seaborn>=0.13.2",
+    "scikit-learn>=1.9.1",
+    "ipykernel>=7.4.0",
+    "google-genai>=2.32.0",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+accident = "accident:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu128" },
+]
+torchvision = [
+    { index = "pytorch-cu128" },
+]
+
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
